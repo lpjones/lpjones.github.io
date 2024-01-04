@@ -31,21 +31,6 @@
         p {
             color: #666;
         }
-
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
-            height: 0;
-            overflow: hidden;
-        }
-
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
     </style>
 </head>
 <body>
@@ -53,11 +38,12 @@
     <header>
         <h1>Projects</h1>
         <p>Luke Jones</p>
+        <p><a href="https://github.com/lpjones">Github</a></p>
     </header>
 
     <section>
         <div class="project">
-            <h2>Project 1: Object Detection and tracking</h2>
+            <h2>Project 1: <a href="https://github.com/lpjones/Object-Detection-and-Tracking">Object Detection and Tracking</a></h2>
             <p>The assignment asked us, one other group member and I, to 
                 take in a video and count the number of people that enter 
                 the camera frame. We were given a file that registered and 
@@ -65,25 +51,64 @@
                 we passed each frame of the video sequentially through the 
                 yolo model to identify people before updating the IDs using 
                 the given sort.py file. We then used the added a display on 
-                the output video to show how many people had been in frame.</p>
+                the output video to show how many people had been in frame.
+            </p>
 
             <!-- Video Embedding -->
-            <div class="video-container">
-                <!-- Replace the 'your_video_url_here' with the actual URL of your video -->
-                <iframe width="560" height="315" src="https://github.com/lpjones/Object-Detection-and-Tracking/blob/main/mot_vid/MOTS20-09-result.mp4" frameborder="0" allowfullscreen></iframe>
-            </div>
+            <video width="640" height="360" controls>
+                <source src="videos/MOTS20-09-result.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
 
-            <p>The next part of the assignment </p>
+            <p>We also created an image detector that takes an image and draws 
+                bounding boxes labeling each class found in the image along with 
+                its confidence score
+            </p>
+
+            <section>
+                <img src="images/farm_out.jpg" alt="A person, a dog, and a horse">
+            </section>
         </div>
 
         <div class="project">
-            <h2>Project 2: Path Finding</h2>
-            <p>Description of the project. Highlight key features and technologies used.</p>
+            <h2>Project 2: <a href="https://github.com/lpjones/Path-Finding">Path Finding</a></h2>
+            <p>We created a maze solver that takes in a maze file and finds the shortest 
+                path from the start to end points using either dijkstra's or the A-star 
+                algorithms. We also created a display to show how the maze is solved using
+                the specified algorithm. The below video shows the program solving a maze
+                using the A-star algorithm.
+            </p>
+
+            <video width="640" height="360" controls>
+                <source src="videos/Path-Finding-A-star.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+
         </div>
 
         <div class="project">
-            <h2>Project 3: Path Tracking and Object Removal</h2>
-            <p>Description of the project. Highlight key features and technologies used.</p>
+            <h2>Project 3: <a href="https://github.com/lpjones/Path-Tracking-and-Object-Removal">Path Tracking and Object Removal</a></h2>
+            <p>We created our own tracking method based on the centroid of the bounding 
+                boxes in each frame and used it to keep track of people within the video 
+                and trace the path they have traveled.
+            </p>
+
+            <video width="640" height="360" controls>
+                <source src="videos/Path-Tracking.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+
+            <p>We also created an object removal program that finds and removes a 
+                specified class for an image and replaces it with a specified chunk 
+                to the right of the object. Below shows the removal of people from a
+                picture of a beach.
+            </p>
+
+            <section>
+                <img src="images/beach.jpg" alt="Beach with people" width="640" height="360">
+                <img src="images/beach_out.jpg" alt="Beach with people removed" width="640" height="360">
+            </section>
+
         </div>
 
         <!-- Add more projects as needed -->

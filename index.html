@@ -118,18 +118,55 @@
                 few moves as possible. Pieces can move to an empty space next to them or hop over
                 a piece to an empty space.
             </p>
-
-            <p id="cppResult"></p>
             
-            <script>
-                // Use JavaScript to fetch the result from the C++ script
-                
-                fetch('scripts/Frog.cgi')
-                    .then(response => response.text())
-                    .then(data => {
-                        document.getElementById('cppResult').textContent = data;
-                    });
-            </script>
+            <h1 id="example">Example</h1>
+<pre><code class="lang-console">lukejones@Lukes-MacBook-Pro-<span class="hljs-number">5</span> Frog % ./<span class="hljs-keyword">a</span>.out 
+Input <span class="hljs-keyword">number</span> of Pairs of Frog<span class="hljs-variable">s:</span> <span class="hljs-number">2</span>
+Computer <span class="hljs-built_in">or</span> Player [<span class="hljs-keyword">c</span>] <span class="hljs-built_in">or</span> [<span class="hljs-keyword">p</span>]: <span class="hljs-keyword">p</span>
+<span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span> <span class="hljs-number">4</span> <span class="hljs-number">5</span> 
+<span class="hljs-keyword">X</span> <span class="hljs-keyword">X</span>   O O 
+Move<span class="hljs-variable">s:</span> <span class="hljs-number">0</span>
+Choose which frog <span class="hljs-keyword">to</span> <span class="hljs-keyword">move</span>: <span class="hljs-number">2</span>
+<span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span> <span class="hljs-number">4</span> <span class="hljs-number">5</span> 
+<span class="hljs-keyword">X</span>   <span class="hljs-keyword">X</span> O O 
+Move<span class="hljs-variable">s:</span> <span class="hljs-number">1</span>
+Choose which frog <span class="hljs-keyword">to</span> <span class="hljs-keyword">move</span>: <span class="hljs-number">4</span>
+<span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span> <span class="hljs-number">4</span> <span class="hljs-number">5</span> 
+<span class="hljs-keyword">X</span> O <span class="hljs-keyword">X</span>   O 
+Move<span class="hljs-variable">s:</span> <span class="hljs-number">2</span>
+Choose which frog <span class="hljs-keyword">to</span> <span class="hljs-keyword">move</span>: <span class="hljs-number">3</span>
+<span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span> <span class="hljs-number">4</span> <span class="hljs-number">5</span> 
+<span class="hljs-keyword">X</span> O   <span class="hljs-keyword">X</span> O 
+Move<span class="hljs-variable">s:</span> <span class="hljs-number">3</span>
+Choose which frog <span class="hljs-keyword">to</span> <span class="hljs-keyword">move</span>: <span class="hljs-number">1</span>
+<span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span> <span class="hljs-number">4</span> <span class="hljs-number">5</span> 
+    O <span class="hljs-keyword">X</span> <span class="hljs-keyword">X</span> O 
+Move<span class="hljs-variable">s:</span> <span class="hljs-number">4</span>
+Choose which frog <span class="hljs-keyword">to</span> <span class="hljs-keyword">move</span>: <span class="hljs-number">2</span>
+<span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span> <span class="hljs-number">4</span> <span class="hljs-number">5</span> 
+O   <span class="hljs-keyword">X</span> <span class="hljs-keyword">X</span> O 
+Move<span class="hljs-variable">s:</span> <span class="hljs-number">5</span>
+Choose which frog <span class="hljs-keyword">to</span> <span class="hljs-keyword">move</span>: <span class="hljs-number">3</span>
+<span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span> <span class="hljs-number">4</span> <span class="hljs-number">5</span> 
+O <span class="hljs-keyword">X</span>   <span class="hljs-keyword">X</span> O 
+Move<span class="hljs-variable">s:</span> <span class="hljs-number">6</span>
+Choose which frog <span class="hljs-keyword">to</span> <span class="hljs-keyword">move</span>: <span class="hljs-number">5</span>
+<span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span> <span class="hljs-number">4</span> <span class="hljs-number">5</span> 
+O <span class="hljs-keyword">X</span> O <span class="hljs-keyword">X</span>   
+Move<span class="hljs-variable">s:</span> <span class="hljs-number">7</span>
+Choose which frog <span class="hljs-keyword">to</span> <span class="hljs-keyword">move</span>: <span class="hljs-number">4</span>
+<span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span> <span class="hljs-number">4</span> <span class="hljs-number">5</span> 
+O <span class="hljs-keyword">X</span> O   <span class="hljs-keyword">X</span> 
+Move<span class="hljs-variable">s:</span> <span class="hljs-number">8</span>
+Choose which frog <span class="hljs-keyword">to</span> <span class="hljs-keyword">move</span>: <span class="hljs-number">2</span>
+<span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span> <span class="hljs-number">4</span> <span class="hljs-number">5</span> 
+O   O <span class="hljs-keyword">X</span> <span class="hljs-keyword">X</span> 
+Move<span class="hljs-variable">s:</span> <span class="hljs-number">9</span>
+Choose which frog <span class="hljs-keyword">to</span> <span class="hljs-keyword">move</span>: <span class="hljs-number">3</span>
+<span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span> <span class="hljs-number">4</span> <span class="hljs-number">5</span> 
+O O   <span class="hljs-keyword">X</span> <span class="hljs-keyword">X</span> 
+You Won in <span class="hljs-number">10</span> moves!!
+</code></pre>
 
         </div>
 

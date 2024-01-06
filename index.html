@@ -111,6 +111,28 @@
 
         </div>
 
+        <div class="project">
+            <h2>Project 3: <a href="https://github.com/lpjones/Frog">Frogger Game</a></h2>
+            <p>I created an interactive game in C++ based on Frogger for a middle school math class.
+                The goal of the game is to swap the X and O pieces from one side to the other in as
+                few moves as possible. Pieces can move to an empty space next to them or hop over
+                a piece to an empty space.
+            </p>
+
+            <p id="cppResult"></p>
+            
+            <script>
+                // Use JavaScript to fetch the result from the C++ script
+                
+                fetch('scripts/Frog.cgi')
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('cppResult').textContent = data;
+                    });
+            </script>
+
+        </div>
+
         <!-- Add more projects as needed -->
 
     </section>

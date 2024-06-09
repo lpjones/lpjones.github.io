@@ -44,52 +44,28 @@
 
     <section>
         <div class="project">
-            <h2>Project 1: <a href="https://github.com/lpjones/Object-Detection-and-Tracking">Object Detection and Tracking</a></h2>
-            <p>In a  collaborative project, my  class partner and I were tasked to write a program that would 
-                take in a video and count the number of people that enter 
-                the camera frame. We were given a file that registered and 
-                updated the different IDs for each person. Using that file 
-                we passed each frame of the video sequentially through the 
-                yolo model to identify people before updating the IDs using 
-                the given sort.py file. We then added a display on 
-                the output video to show how many people had been in the frame of the given camera shot.
-            </p>
+            <h2>Project 1: <a href="https://github.com/Just-Jacksone/ARMS">Autonomous Companion (Senior Design) –– Ongoing</a></h2>
+            <p> 
+                <strong>Focus: Machine learned computer vision models, pose/object detection & real-time decision making </strong><br> <br>
 
-            <!-- Video Embedding -->
+                Details: Using Tensorflow, PyTorch, Jetson Nano, Intel RealSense Camera and an RC car to build a companion that follows a person and dynamically alters its behavior based on detected poses. <br> <br>
+
+                The below video is our current prototype. We are in the beginning phases of testing and will complete the project by the end of March 2024.
+
+            </p>
             <video width="640" height="360" controls>
-                <source src="videos/MOTS20-09-result.mp4" type="video/mp4">
+                <source src="videos/Sen_design_1.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
-
-            <p>We also created an image detector that takes an image and draws 
-                bounding boxes labeling each class found in the image along with 
-                its confidence score.
-            </p>
-
-            <section>
-                <img src="images/farm_out.jpg" alt="A person, a dog, and a horse">
-            </section>
         </div>
 
         <div class="project">
-            <h2>Project 2: <a href="https://github.com/lpjones/Path-Finding">Path Finding</a></h2>
-            <p>We created a maze solver that takes in a maze file and finds the shortest 
-                path from the start to end points using either dijkstra's or the A-star 
-                algorithms. We also created a display to show how the maze is solved using
-                the specified algorithm. The below video shows the program solving a maze
-                using the A-star algorithm.
-            </p>
+            <h2>Project 2: <a href="https://github.com/lpjones/Path-Tracking-and-Object-Removal">Path Tracking and Object Removal</a></h2>
+            <p>
+                <strong>Focus: MOTS with YOLO object detection</strong> <br> <br>
 
-            <video width="640" height="360" controls>
-                <source src="videos/Path-Finding-A-star.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-
-        </div>
-
-        <div class="project">
-            <h2>Project 3: <a href="https://github.com/lpjones/Path-Tracking-and-Object-Removal">Path Tracking and Object Removal</a></h2>
-            <p>We created our own tracking method based on the centroid of the bounding 
+                Using video input, track people's positions as they move. Then output a video displaying the path people have traveled. <br> <br>
+                We created our own tracking method based on the centroid of the bounding 
                 boxes in each frame and used it to keep track of people within the video 
                 and trace the path they have traveled.
             </p>
@@ -113,26 +89,52 @@
         </div>
 
         <div class="project">
-            <h2>Project 4: <a href="https://github.com/lpjones/Machine-Learning-Models">Testing Machine Learning Models</a></h2>
-            <p>I use three different datasets and test different machine learning models 
-                and preprocessing techniques to see how they perform. The models used are
-                K-means, Naive Bayes, KNN, SVM, and Neural Networks. The performance of the
-                models was determined through accuracy, recall, precision, f1-score, and 
-                graphs like correlation heat maps and confusion matrices. This project let
-                me explore a large variety of machine learning models and preprocessing 
-                techniques that can be used as well as how to test them. An example from 
-                the project is shown below as the model is overfitting after a couple 
-                of epochs because the validation accuracy is decreasing while the training accuracy 
-                is increasing. 
+            <h2>Project 3: <a href="https://github.com/lpjones/Machine-Learning-Models">Testing Machine Learning Models</a></h2>
+            <p>I Utilize three unique datasets to test and evaluate different machine learning models and preprocessing techniques to compare how they perform. The models used are K-means, Naive Bayes, KNN, SVM, and Neural Networks. The performance of the models was determined through accuracy, recall, precision, f1-score, and graphs such as correlation heat maps and confusion matrices. This project let me explore a large variety of machine learning models and preprocessing techniques that can be used as well as how to test them. An example from the testing is shown below where one model is overfitting after a couple of epochs because the validation accuracy is decreasing while the training accuracy is increasing.
             </p>
             <section>
                 <img src="images/Epoch_vs_accuracy.png" alt="Epoch vs Accuracy">
             </section>
         </div>
+        
+
+        <div class="project">
+            <h2>Project 4: <a href="https://github.com/lpjones/Path-Finding">Path Finding</a></h2>
+            <p>We created a maze solver that takes in a maze file and finds the shortest 
+                path from the start to end points using either dijkstra's or the A-star 
+                algorithms. We also created a display to show how the maze is solved using
+                the specified algorithm. The below video shows the program solving a maze
+                using the A-star algorithm.
+            </p>
+
+            <video width="640" height="360" controls>
+                <source src="videos/Path-Finding-A-star.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+
+        </div>
+
+        
+
+        
 
         <div class="project">
             <h2>Project 5: <a href="https://github.com/lpjones/Frog">Frogger Game</a></h2>
-            <p>I created an interactive game in C++ based on Frogger as a volunteer project per  the request  of a middle school teacher in my community.
+            <p>Goal: <br>
+                Create a coding example which demonstrates that coding can be simple and intuitive to read & write. Coding is something anyone can do! <br> <br>
+
+                Intended Audience <br>
+                Middle School Math Students (12-15 year old) <br> <br>
+                
+                Math Level: Pre-Algebra <br> <br>
+                
+                Programming Background: None <br> <br>
+                
+                Criteria <br>
+                
+                - Intuitive enough for a non-programmer to read and be able to understand what the code does <br>
+                - Fun (a game similar to one of their in-class math exercises) <br> <br>
+
                 The goal of the game is to swap the X and O pieces from one side to the other in as
                 few moves as possible. Pieces can move to an empty space next to them or hop over
                 a piece to an empty space.
@@ -187,6 +189,38 @@ O O   <span class="hljs-keyword">X</span> <span class="hljs-keyword">X</span>
 You Won in <span class="hljs-number">10</span> moves!!
 </code></pre>
 
+        </div>
+
+        <div class="project">
+            <h2>Project 6: <a href="https://github.com/lpjones/Object-Detection-and-Tracking">Object Detection and Tracking</a></h2>
+            <p>Goal: <br>
+                Take in a video and count the number of people that enter 
+                the camera frame. This was implemented using a YOLO object detection model.
+            </p>
+
+            <!-- Video Embedding -->
+            <video width="640" height="360" controls>
+                <source src="videos/MOTS20-09-result.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+
+            <p>We also created an image detector that takes an image and draws 
+                bounding boxes labeling each class found in the image along with 
+                its confidence score.
+            </p>
+
+            <section>
+                <img src="images/farm_out.jpg" alt="A person, a dog, and a horse">
+            </section>
+        </div>
+
+        <div class="project">
+            <h2>Project 7: <a href="TiltedTerrain/index.html">Tilted Terrain: 2D Platformer</a></h2>
+            <p>Goal: <br>
+                Create a 2D Platformer using a microcontroller. Features include movable platforms based on tilting the device and map creation and downloading using AWS.
+            </p>
+
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/HNbkHypWYPA?si=IsAYJaMsx6F6dW9o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
 
         <!-- Add more projects as needed -->

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Kushagra Tiwari and Shengmin Liu (website template by Ryan Tsang)" />
+  <title>Tilted Terrain: 2D Platformer</title>
+  <!-- <link rel="stylesheet" type="text/css" href="assets/github-markdown-light.css" /> -->
+  <link rel="stylesheet" href="assets/github-markdown-light.css" />
+  <link rel="stylesheet" href="assets/style-customization.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<article class="markdown-body">
+<header id="title-block-header">
+<h1 class="title">Tilted Terrain: 2D Platformer</h1>
+<div style="display:flex;flex-wrap:wrap;justify-content:space-evenly;padding-top:20px"> <div style="display: inline-block; vertical-align: bottom;"> <img src="./media/Logo.png" style="width:auto;height:5in"/> <!-- <span class="caption"> </span> --> </div>
+
+
+<p class="author"><strong>Luke Jones and Jesus Delgado</strong></p>
+<div class="abstract">
+<div class="abstract-title"><h2>Description</h2></div>
+Our project involves creating an engaging 2-D platformer game that combines classic gameplay elements with modern technology. This innovative game utilizes a joystick for character movement and an accelerometer to control specific platform movements, adding a layer of complexity and interaction. Players can select from a variety of maps, which are downloaded using AWS servers, ensuring a dynamic and versatile gaming experience. Additionally, users have the capability to create and upload their own custom maps to AWS, enriching the community-driven content and extending the game's lifespan. <br/><br/>  <!-- replace this link -->
+<a href="https://github.com/lpjones/TiltedTerrain"> Source Code</a><br />
+<div style="display:flex;flex-wrap:wrap;justify-content:space-evenly;padding-top:20px"> <div style="display: inline-block; vertical-align: bottom;"> <img src="./media/Box.png" style="width:auto;height:2in"/> <!-- <span class="caption"> </span> --> </div> <div style="display: inline-block; vertical-align: bottom;"> <img src="./media/Inside.png" style="width:auto;height:2in" /> <!-- <span class="caption"> </span> --> </div> </div>
+<h2>Video Demo</h2> <div style="text-align:center;margin:auto;max-width:560px"> <div style="padding-bottom:56.25%;position:relative;height:0;"> <iframe width="560" height="315" src="https://www.youtube.com/embed/HNbkHypWYPA?si=uTaSXze4LS-GCx0u" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> </div> </div> 
+</div>
+</header>
+
+
+<nav id="TOC" role="doc-toc">
+<h2 id="toc-title">Table of Contents</h2>
+<ul>
+<li><a href="#design" id="toc-design">Design</a>
+<ul>
+<li><a href="#system-architecture" id="toc-system-architecture">System
+Architecture</a></li>
+<li><a href="#functional-specification"
+id="toc-functional-specification">Functional Specification</a></li>
+</ul></li>
+<li><a href="#implementation" id="toc-implementation">Implementation</a>
+<ul>
+<li><a href="#joystick" id="toc-joystick">Joystick</a></li>
+<li><a href="#accelerometer" id="toc-accelerometer">Accelerometer</a></li>
+<li><a href="#oled" id="toc-oled">OLED</a></li>
+<li><a href="#aws" id="toc-aws">AWS</a></li>
+
+</ul>
+<li><a href="#finalized-bom" id="toc-finalized-bom">Bill of Materials</a></li>
+</ul>
+</nav>
+<!-- EDIT METADATA ABOVE FOR CONTENTS TO APPEAR ABOVE THE TABLE OF CONTENTS -->
+
+<!-- ALL CONTENT THAT FOLLWOWS WILL APPEAR IN AND AFTER THE TABLE OF CONTENTS -->
+
+<h1 id="design">Design</h1>
+<h2 id="system-architecture">System Architecture</h2>
+<div style="display:flex;flex-wrap:wrap;justify-content:space-evenly;">
+  <div style="display:inline-block;vertical-align:top;flex:1 0 400px;">
+    The system architecture of Tilted Terrain is shown in the picture to the right. A joystick and accelerometer provide real-time inputs for character movement and platform control, which are processed by the CC3200 microcontroller. The microcontroller handles game logic, updating the game state based on user inputs, and renders the updated state on an OLED screen. AWS cloud services facilitate the storage and retrieval of game maps, allowing players to download new maps and upload their custom creations.
+  </div>
+  <div style="display:inline-block;vertical-align:top;flex:0 0 400px;">
+    <div class="fig">
+      <img src="./media/System_Architecture.png" style="width:90%;height:auto;" />
+      <span class="caption">System Flowchart</span>
+    </div>
+  </div>
+</div>
+
+<h2 id="functional-specification">Functional Specification</h2>
+<div style="display:flex;flex-wrap:wrap;justify-content:space-evenly;">
+  <div style="display:inline-block;vertical-align:top;flex:1 0 300px;">
+    The functional specification of Tilted Terrain is shown in the diagram to the right. The player starts on the online/offline menu screen to select either offline or online mode. If offline is selected, the the predownloaded maps are loaded and the game starts. If the online mode is selected, first the list of map names is downloaded from AWS and displayed on the map selection menu. The player then picks a map from the list of maps on AWS which loads the map data onto the CC3200. Once the map is loaded onto the CC3200, the game starts where the game state is determined by the joystick and accelerometer inputs along with the previous game state. Finally the current game state is displayed onto the OLED to the player.
+  </div>
+  <div style="display:inline-block;vertical-align:top;flex:0 0 500px">
+    <div class="fig">
+      <img src="./media/Functional_Specification.png" style="width:90%;height:auto;" />
+      <span class="caption">Functional Diagram</span>
+    </div>
+  </div>
+</div>
+
+<h1 id="implementation">Implementation</h1>
+<h3 id="joystick">Joystick</h3>
+<p>The joystick controls the movement of the character and enables selection on map screens. Four pins on the joystick were used, the x-direction, y-direction, 5V, and ground pins. For the x-direction input, it was wired to an ADC pin on the CC3200 to convert the voltage value into a digital value used for game logic. Since there was only one working ADC on the CC3200, the y-direction input was put into a GPIO pin. This allowed the board to detect whether the y-direction input was over a threshold or not which is all that is needed for the jumping mechanic in Tilted Terrain.  </p>
+<h3 id="accelerometer">Accelerometer</h3>
+<p>The accelerometer controls the movement of the movable platforms in Tilted Terrain. The acceleromter is built into the CC3200 and sends data using the i2c protocol. The tilt information on one of the axes is used in the game logic to update the platform state of movable platforms.</p>
+
+<h3 id="oled">OLED Display</h3>
+<p>The OLED displays the menu screens and the game state to the player. The OLED uses the SPI protocol to communicate. The game logic includes sections to send data over SPI to the OLED in order to display the game state and menu screens. </p>
+
+<h3 id="aws">AWS</h3>
+<p>
+  In Tilted Terrain, AWS is used for storing, retrieving, and managing game maps. Specifically, an AWS bucket stores game maps that players can download when selecting a level to play. Players can also upload maps, allowing players to make their own custom levels. </p>
+
+
+<h1 id="challenges">Challenges</h1>
+<p>The most significant challenge we faced was creating the game logic in an optimized way to ensure a high framerate for the player. This involved using bitmaps for storing current and previous game state information for fast collision detection and minimal pixel updates on the OLED. Optimizing the game took the vast majority of the time spent working on the project, but as a result, our game runs smoothly at 50fps with near instantaneous loading of downloaded maps as well.</p>
+<h1 id="finalized-bom">Bill of Materials</h1>
+<!-- you can convert google sheet cells to html for free using a converter
+  like https://tabletomarkdown.com/convert-spreadsheet-to-html/ -->
+
+<table style="border-collapse:collapse;">
+<thead>
+  <tr>
+    <th><p>No.</p></th>
+    <th><p>PART NAME</p></th>
+    <th><p>DESCRIPTION</p></th>
+    <th><p>SUPPLIER / MANUFACTURER</p></th>
+    <th><p>COST</p></th>
+    <th><p>Purpose</p></th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td><p>1</p></td>
+    <td><p>CC3200</p></td>
+    <td><p>Microcontroller</p></td>
+    <td><p>Provided by EEC172 Course</p></td>
+    <td><p>$66.00</p></td>
+    <td><p>Game Logic, ADC, Accelerometer, AWS Wifi Connection</p></td>
+  </tr>
+  <tr>
+    <td><p>2</p></td>
+    <td><p>Adafruit 1431 OLED</p></td>
+    <td><p>128x128 RGB OLED Display. SPI protocol</p></td>
+    <td><p>Provided by EEC172 Course</p></td>
+    <td><p>$39.95</p></td>
+    <td><p>Display Game</p></td>
+  </tr>
+  <tr>
+    <td><p>3</p></td>
+    <td><p>ELEGOO 37 in 1 Sensor Kit</p></td>
+    <td><p>37 Sensors</p></td>
+    <td><p>ELEGOO</p></td>
+    <td><p>$36.99</p></td>
+    <td><p>For the Joystick and Resistors</p></td>
+  </tr>
+  <tr>
+    <td colspan="4", rowspan="1">
+      <p>TOTAL</p></td>
+    <td><p>$142.94</p></td>
+  </tr>
+  <tr>
+    <td colspan="4", rowspan="1">
+      <p>TOTAL (Exluding Provided)</p></td>
+    <td><p>$36.99</p></td>
+    <td></td>
+  </tr>
+</tbody>
+</table>
+</article>
+</html>
